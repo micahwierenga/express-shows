@@ -18,7 +18,8 @@ function update(req, res) {
 function edit(req, res) {
     const show = Show.getOneShow(req.params.id);
     res.render('shows/edit', {
-        show
+        show,
+        title: `Edit ${show.name}`
     });
 }
   
@@ -27,24 +28,28 @@ function deleteShow(req, res) {
     res.redirect('/shows');
 }
   
-function create(req, res) {
+function create(req, res) {    
     Show.createNewShow(req.body);
     res.redirect('/shows');
 }
   
 function newShow(req, res) {
-    res.render('shows/new.ejs');
+    res.render('shows/new.ejs', {
+        title: 'Add Show'
+    });
 }
 
 function show(req, res) {
     const show = Show.getOneShow(req.params.id);
     res.render('shows/show', {
-      show
+      show,
+      title: show.name
     });
 }
 
 function index(req, res, next) {
     res.render('shows/index', {
-        shows: Show.getAllShows()
+        shows: Show.getAllShows(),
+        title: 'All Shows'
     });
 }

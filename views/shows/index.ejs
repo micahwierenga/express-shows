@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shows</title>
-</head>
-<body>
+<%- include('../partials/header', {title}) %>
+
     <a href="/">Home</a> | <a href="/shows">Show List</a> | <a href="/shows/new">Add Show</a>
     <h1>TV Shows</h1>
     <% shows.forEach(function(show) { %>
@@ -18,5 +12,5 @@
         </div>
         <hr>
     <% }) %>
-</body>
-</html>
+
+<%- include('../partials/footer') %>

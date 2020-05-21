@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Show</title>
-</head>
-<body>
+<%- include('../partials/header', {title}) %>
+
     <a href="/">Home</a> | <a href="/shows">Show List</a> | <a href="/shows/new">Add Show</a>
     <h1>Add Show</h1>
     <form action="/shows" method="POST">
@@ -15,5 +9,5 @@
         Cast Member 3: <input type="text" name="cast"><br>
         <button type="submit">Save Show</button>
     </form>
-</body>
-</html>
+
+<%- include('../partials/footer') %>

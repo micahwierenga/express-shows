@@ -22,6 +22,7 @@ module.exports = {
 
 function updateOneShow(showId, showObj) {
     const foundShow = shows.find(show => show.id === parseInt(showId));
+    showObj.cast = filterEmptyStrings(showObj.cast);
     Object.assign(foundShow, showObj);
 }
 

@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Show</title>
-</head>
-<body>
+<%- include('../partials/header', {title}) %>
+
     <a href="/">Home</a> | <a href="/shows">Show List</a> | <a href="/shows/new">Add Show</a>
     <h1>Update Show</h1>
     <form action="/shows/<%= show.id %>?_method=PUT" method="POST">
@@ -15,5 +9,5 @@
         Cast Member 3: <input type="text" name="cast" value="<%= show.cast[2] %>"><br>
         <button type="submit">Update Show</button>
     </form>
-</body>
-</html>
+
+<%- include('../partials/footer') %>
