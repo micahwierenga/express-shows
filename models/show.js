@@ -1,6 +1,6 @@
 const shows = [
     { id: 1, name: 'The Office', cast: ['Steve Carell', 'Rainn Wilson', 'John Krasinski'] },
-    { id: 2, name: 'It\s Always Sunny in Philadelphia', cast: ['Rob McElhenney', 'Charlie Day', 'Glenn Howerton'] },
+    { id: 2, name: 'It\'s Always Sunny in Philadelphia', cast: ['Rob McElhenney', 'Charlie Day', 'Glenn Howerton'] },
     { id: 3, name: 'Seinfeld', cast: ['Jerry Seinfeld', 'Julia Louis-Dreyfus', 'Jason Alexander'] },
     { id: 4, name: 'Parks and Recreation', cast: ['Amy Poehler', 'Nick Offerman'] },
     { id: 5, name: 'Breaking Bad', cast: ['Bryan Cranston', 'Aaron Paul'] },
@@ -13,10 +13,37 @@ const shows = [
 ];
 
 module.exports = {
-    getAllShows: function() {
-        return shows;
-    },
-    getOneShow: function(showId) {
-        return shows.find(show => show.id === parseInt(showId))
-    }
+    getAllShows,
+    getOneShow,
+    createNewShow,
+    deleteOneShow,
+    updateOneShow,
+}
+
+function updateOneShow(showId, showObj) {
+    const foundShow = shows.find(show => show.id === parseInt(showId));
+    Object.assign(foundShow, showObj);
+}
+
+function deleteOneShow(showId) {
+    const idx = shows.findIndex(show => show.id === parseInt(showId));
+    shows.splice(idx, 1);
+}
+
+function createNewShow(newShowObj) {
+    newShowObj.id = Date.now() % 1000000;
+    newShowObj.cast = filterEmptyStrings(newShowObj.cast);
+    shows.push(newShowObj);
+}
+
+function getOneShow(showId) {
+    return shows.find(show => show.id === parseInt(showId))
+}
+
+function getAllShows() {
+    return shows;
+}
+
+function filterEmptyStrings(arr) {
+    return arr.filter(a => a !== '');
 }

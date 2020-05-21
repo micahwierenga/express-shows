@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= show.name %></title>
+</head>
+<body>
+    <a href="/">Home</a> | <a href="/shows">Show List</a> | <a href="/shows/new">Add Show</a>
+    <h1><%= show.name %></h1>
+    <p>Cast:</p>
+    <ul>
+        <% show.cast.forEach(function(member) { %>
+            <li><%= member %></li>
+        <% }) %>
+    </ul>
+    <a href="/shows/<%= show.id %>/edit">Edit Show</a>
+</body>
+</html>
